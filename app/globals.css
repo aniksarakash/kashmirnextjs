@@ -3,71 +3,188 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #0078C7;
-  --secondary-color: #32A852;
-  --dark-color: #333333;
-  --light-color: #f8f9fa;
-  --white-color: #ffffff;
-  --gray-color: #6c757d;
-  --border-radius-sm: 0.25rem;
-  --border-radius-md: 0.5rem;
-  --border-radius-lg: 1rem;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--dark-color);
-  background-color: var(--light-color);
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
-@layer components {
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
+/* Custom styles */
+.section-title {
+  @apply text-3xl md:text-4xl font-bold font-montserrat mb-4;
+}
 
-  .btn {
-    @apply inline-block px-6 py-3 rounded-md font-medium transition-colors duration-300;
-  }
+.section-subtitle {
+  @apply text-lg max-w-3xl mx-auto;
+}
 
-  .btn-primary {
-    @apply bg-[#00A3C4] text-white hover:bg-[#0090b0];
-  }
+.btn-primary {
+  @apply bg-[#00A3C4] hover:bg-[#0088A9] text-white font-semibold py-3 px-6 rounded-md transition duration-300 inline-block;
+}
 
-  .btn-secondary {
-    @apply bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm;
-  }
+.btn-outline {
+  @apply border-2 border-[#00A3C4] text-[#00A3C4] hover:bg-[#00A3C4] hover:text-white font-semibold py-3 px-6 rounded-md transition duration-300 inline-block;
+}
 
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-4;
-  }
+.btn-secondary {
+  @apply bg-white hover:bg-gray-100 text-gray-800 font-semibold py-3 px-6 rounded-md transition duration-300 inline-block;
+}
 
-  .section-subtitle {
-    @apply text-gray-600 max-w-xl mx-auto mb-12;
-  }
+.nav-link {
+  @apply text-white hover:text-[#00A3C4] transition duration-300;
+}
+
+.card-shadow {
+  @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+.gradient-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
 }
 
 .text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.form-input {
+  @apply w-full bg-gray-700 text-white rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00A3C4] transition duration-300;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
+.form-label {
+  @apply block text-gray-300 mb-2 font-medium;
+}
+
+.form-error {
+  @apply text-red-400 text-sm mt-1;
+}
+
+.package-card {
+  @apply bg-gray-800 rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2;
+}
+
+.badge {
+  @apply inline-block px-3 py-1 text-xs font-semibold rounded-full;
+}
+
+.badge-trending {
+  @apply bg-[#00A3C4]/20 text-[#00A3C4];
+}
+
+.badge-popular {
+  @apply bg-purple-500/20 text-purple-400;
+}
+
+.badge-discount {
+  @apply bg-green-500/20 text-green-400;
+}
+
+.feature-icon {
+  @apply w-10 h-10 bg-[#00A3C4]/20 rounded-full flex items-center justify-center text-[#00A3C4] mb-4;
+}
+
+.testimonial-card {
+  @apply bg-gray-800 p-6 rounded-lg;
+}
+
+.faq-item {
+  @apply border-b border-gray-700 py-4;
+}
+
+.whatsapp-button {
+  @apply fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 hover:scale-110;
+}
+
+.gallery-grid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.gallery-item {
+  @apply relative overflow-hidden rounded-lg cursor-pointer;
+}
+
+.gallery-overlay {
+  @apply absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center;
+}
+
+.itinerary-item {
+  @apply flex items-center space-x-2 mb-2;
+}
+
+.itinerary-dot {
+  @apply w-2 h-2 rounded-full bg-[#00A3C4];
+}
+
+.attraction-item {
+  @apply flex items-center space-x-2 mb-2;
+}
+
+.attraction-icon {
+  @apply text-[#00A3C4];
+}
+
+.price-tag {
+  @apply text-3xl font-bold text-[#00A3C4];
+}
+
+.price-original {
+  @apply text-xl text-gray-400 line-through ml-2;
+}
+
+.duration-tag {
+  @apply text-sm bg-gray-700 px-3 py-1 rounded-full text-gray-300 inline-block;
+}
+
+.package-details {
+  @apply mt-4 grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.detail-section {
+  @apply bg-gray-800 p-4 rounded-lg;
+}
+
+.detail-title {
+  @apply text-lg font-semibold mb-2 text-white;
+}
+
+.detail-content {
+  @apply text-gray-300;
+}
+
+.mobile-menu {
+  @apply fixed inset-0 bg-gray-900 bg-opacity-95 z-50 flex flex-col items-center justify-center;
+}
+
+.mobile-menu-link {
+  @apply text-xl text-white hover:text-[#00A3C4] py-3 transition duration-300;
+}
+
+.close-button {
+  @apply absolute top-6 right-6 text-white hover:text-[#00A3C4] transition duration-300;
 }

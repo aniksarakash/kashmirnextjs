@@ -40,6 +40,7 @@ jobs:
           rm -rf .next
           rm -rf out
           rm -rf node_modules/.cache
+          rm -rf pages
           find . -name "*.js.map" -type f -delete
           find . -name "*.d.ts" -type f -delete
 

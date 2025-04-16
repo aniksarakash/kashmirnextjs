@@ -10,8 +10,6 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? '/kashmirnextjs' : '',
   basePath: process.env.NODE_ENV === 'production' ? '/kashmirnextjs' : '',
   trailingSlash: true,
-  // Disable the Pages Router completely
-  useFileSystemPublicRoutes: false,
   // Optimize SVG usage
   webpack(config) {
     // Configure SVGR
