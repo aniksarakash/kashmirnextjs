@@ -54,9 +54,23 @@ The output will be in the `out` directory, ready for deployment.
 
 ## Deployment
 
-### Vercel (Recommended)
+### GitHub Pages (Current Deployment)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+This project is currently deployed on GitHub Pages. The deployment is automated using GitHub Actions.
+
+1. Push your code to the GitHub repository
+2. GitHub Actions will automatically build and deploy the site
+3. The site will be available at `https://aniksarakash.github.io/kashmirnextjs/`
+
+To set up GitHub Pages deployment:
+
+1. Create a `.github/workflows/deploy.yml` file with the appropriate GitHub Actions configuration
+2. Configure `next.config.js` with the correct `basePath` and `assetPrefix`
+3. Push the changes to GitHub
+
+### Vercel
+
+Alternatively, you can deploy your Next.js app using the [Vercel Platform](https://vercel.com/new).
 
 1. Push your code to a Git repository (GitHub, GitLab, BitBucket)
 2. Import the project in Vercel
@@ -107,6 +121,16 @@ Most content can be updated directly in the `app/page.jsx` file.
 
 ## Recent Updates
 
+### GitHub Pages Deployment Fixes (July 2023)
+
+Several fixes have been implemented to ensure proper deployment on GitHub Pages:
+
+1. Added placeholder files for missing media assets to prevent 404 errors
+2. Modified the VideoBackground component to gracefully handle missing files
+3. Updated webpack configuration in next.config.js to fix JavaScript loading issues
+4. Added custom pages directory with _app.js, _document.js, and 404.js for better routing
+5. Configured proper asset paths for GitHub Pages deployment
+
 ### Assets Organization and Structure
 
 A comprehensive guide for organizing and formatting image and video assets has been created. The guide includes:
@@ -130,6 +154,7 @@ These changes ensure consistent alignment across different screen sizes and brow
 
 ## Developer Notes
 
+- **Anik Sarker Akash** - Implemented GitHub Pages deployment fixes and optimizations (July 2023)
 - **Anik Sarker Akash** - Fixed hero section alignment issues and improved responsive behavior
 - **Anik Sarker Akash** - Created comprehensive assets guide for image and video placement
 
