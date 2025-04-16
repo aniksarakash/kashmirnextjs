@@ -3,12 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['via.placeholder.com'],
-    unoptimized: true,
     formats: ['image/avif', 'image/webp'],
   },
-  output: 'export',
-  assetPrefix: './',
-  basePath: '',
+  // Removed output: 'export' and assetPrefix for Vercel deployment
   // Optimize SVG usage
   webpack(config) {
     // Configure SVGR
