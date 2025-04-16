@@ -7,8 +7,8 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   output: 'export',
-  assetPrefix: './',
-  basePath: '',
+  assetPrefix: '/kashmirnextjs/',
+  basePath: '/kashmirnextjs',
   // Optimize SVG usage
   webpack(config) {
     // Configure SVGR
