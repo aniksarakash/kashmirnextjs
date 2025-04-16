@@ -1,5 +1,6 @@
 import './globals.css';
 import './swiper-custom.css';
+import { redirect } from 'next/navigation';
 
 export const metadata = {
   title: 'Kashmir Paradise - Exclusive Travel Packages 2025',
