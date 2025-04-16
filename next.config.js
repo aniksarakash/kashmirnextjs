@@ -10,6 +10,8 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? '/kashmirnextjs' : '',
   basePath: process.env.NODE_ENV === 'production' ? '/kashmirnextjs' : '',
   trailingSlash: true,
+  // Explicitly set the page extensions to avoid conflicts
+  pageExtensions: ['jsx', 'js', 'tsx', 'ts'],
   // Optimize SVG usage
   webpack(config) {
     // Configure SVGR

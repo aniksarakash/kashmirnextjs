@@ -35,6 +35,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Clean build directory
+        run: |
+          rm -rf .next
+          rm -rf out
+          git clean -fdx pages/
+          git clean -fdx app/
+
       - name: Build with Next.js
         run: npm run build
         env:
