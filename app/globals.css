@@ -30,6 +30,10 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
 }
 
 /* Custom styles */
