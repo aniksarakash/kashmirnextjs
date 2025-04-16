@@ -1,5 +1,16 @@
 'use client';
 
+/**
+ * Header Component
+ *
+ * Main navigation header with responsive mobile menu.
+ * Updated with improved scroll functionality for navigation links.
+ *
+ * @author Anik Sarker Akash
+ * @version 1.1.0
+ * @since April 17, 2025
+ */
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
@@ -9,6 +20,22 @@ export default function Header() {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Smooth scroll function to handle navigation
+  const scrollToSection = (sectionId, event) => {
+    event.preventDefault();
+    setIsMenuOpen(false);
+
+    const section = document.getElementById(sectionId);
+    if (section) {
+      // Add a small delay to ensure any state changes complete first
+      setTimeout(() => {
+        const yOffset = -80; // Adjust based on header height
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }, 10);
+    }
   };
 
   // Track scroll position for sticky header effect
@@ -62,11 +89,11 @@ export default function Header() {
           </div>
 
           <ul className="flex md:flex-row flex-col md:space-x-8 md:space-y-0 space-y-4 md:mr-8 mr-0 md:w-auto w-full">
-            <li><a href="#packages" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Packages</a></li>
-            <li><a href="#gallery" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Gallery</a></li>
-            <li><a href="#testimonials" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Reviews</a></li>
-            <li><a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">FAQ</a></li>
-            <li><a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Contact</a></li>
+            <li><a href="#packages" onClick={(e) => scrollToSection('packages', e)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Packages</a></li>
+            <li><a href="#gallery" onClick={(e) => scrollToSection('gallery', e)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Gallery</a></li>
+            <li><a href="#testimonials" onClick={(e) => scrollToSection('testimonials', e)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Reviews</a></li>
+            <li><a href="#faq" onClick={(e) => scrollToSection('faq', e)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">FAQ</a></li>
+            <li><a href="#contact" onClick={(e) => scrollToSection('contact', e)} className="text-white hover:text-[#00A3C4] font-medium relative py-1 block md:border-none border-b border-gray-700">Contact</a></li>
           </ul>
 
           <div className="md:hidden block mt-6 w-full">
@@ -80,7 +107,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <a href="#contact" className="bg-[#00A3C4] hover:bg-[#0090b0] text-white py-2 px-6 rounded-md transition-colors duration-300 font-medium">Enquire Now</a>
+          <a href="#contact" onClick={(e) => scrollToSection('contact', e)} className="bg-[#00A3C4] hover:bg-[#0090b0] text-white py-2 px-6 rounded-md transition-colors duration-300 font-medium">Enquire Now</a>
         </div>
 
         <div className="md:hidden block cursor-pointer z-50" onClick={toggleMenu}>
