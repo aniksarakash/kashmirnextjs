@@ -39,8 +39,9 @@ jobs:
         run: |
           rm -rf .next
           rm -rf out
-          git clean -fdx pages/
-          git clean -fdx app/
+          rm -rf node_modules/.cache
+          find . -name "*.js.map" -type f -delete
+          find . -name "*.d.ts" -type f -delete
 
       - name: Build with Next.js
         run: npm run build
