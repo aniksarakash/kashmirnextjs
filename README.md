@@ -131,16 +131,279 @@ Several fixes have been implemented to ensure proper deployment on GitHub Pages:
 4. Added custom pages directory with _app.js, _document.js, and 404.js for better routing
 5. Configured proper asset paths for GitHub Pages deployment
 
-### Assets Organization and Structure
+## Image and Video Guide
 
-A comprehensive guide for organizing and formatting image and video assets has been created. The guide includes:
+This comprehensive guide provides detailed instructions for formatting, optimizing, and placing images and videos in the Kashmir Next.js project.
 
-1. Directory structure for assets
-2. Required image specifications (sizes, formats)
-3. Video optimization guidelines
-4. Implementation examples in code
+### Directory Structure
 
-See [ASSETS.md](./ASSETS.md) for detailed instructions.
+All media assets should be organized in the `public` directory as follows:
+
+```
+public/
+├── images/
+│   ├── hero/
+│   │   ├── hero-bg.jpg
+│   │   └── hero-mobile.jpg
+│   ├── packages/
+│   │   ├── package1.jpg
+│   │   ├── package2.jpg
+│   │   └── package3.jpg
+│   ├── gallery/
+│   │   ├── gallery1.jpg
+│   │   ├── gallery2.jpg
+│   │   └── ...
+│   ├── testimonials/
+│   │   ├── person1.jpg
+│   │   ├── person2.jpg
+│   │   └── ...
+│   └── icons/
+│       ├── icon1.svg
+│       └── ...
+├── videos/
+│   ├── hero-bg.mp4
+│   ├── hero-bg.webm
+│   └── ...
+└── favicon.ico
+```
+
+### Image Specifications
+
+#### Hero Section Images
+
+| Image | Dimensions | Format | File Size | Purpose |
+|-------|------------|--------|-----------|----------|
+| hero-bg.jpg | 1920×1080px | JPEG | < 300KB | Desktop hero background |
+| hero-mobile.jpg | 768×1024px | JPEG | < 150KB | Mobile hero background |
+
+#### Package Images
+
+| Image | Dimensions | Format | File Size | Purpose |
+|-------|------------|--------|-----------|----------|
+| package1.jpg | 600×400px | JPEG | < 100KB | Package card image |
+| package2.jpg | 600×400px | JPEG | < 100KB | Package card image |
+| package3.jpg | 600×400px | JPEG | < 100KB | Package card image |
+
+#### Gallery Images
+
+| Image | Dimensions | Format | File Size | Purpose |
+|-------|------------|--------|-----------|----------|
+| gallery1.jpg | 800×600px | JPEG | < 150KB | Gallery image |
+| gallery2.jpg | 800×600px | JPEG | < 150KB | Gallery image |
+| gallery3.jpg | 800×600px | JPEG | < 150KB | Gallery image |
+
+#### Testimonial Images
+
+| Image | Dimensions | Format | File Size | Purpose |
+|-------|------------|--------|-----------|----------|
+| person1.jpg | 150×150px | JPEG | < 50KB | Testimonial avatar |
+| person2.jpg | 150×150px | JPEG | < 50KB | Testimonial avatar |
+
+#### Icons
+
+| Image | Dimensions | Format | File Size | Purpose |
+|-------|------------|--------|-----------|----------|
+| icon1.svg | Varies | SVG | < 10KB | UI icons |
+
+### Image Optimization Guidelines
+
+1. **Use Next.js Image Component**: Always use the Next.js `Image` component for optimal loading:
+
+```jsx
+import Image from 'next/image';
+
+<Image
+  src="/images/packages/package1.jpg"
+  alt="Kashmir Package"
+  width={600}
+  height={400}
+  className="rounded-lg"
+/>
+```
+
+2. **Image Formats**:
+   - Use JPEG for photographs
+   - Use PNG for images requiring transparency
+   - Use SVG for icons and simple graphics
+   - Use WebP when possible for better compression (with JPEG/PNG fallbacks)
+
+3. **Responsive Images**: Provide multiple sizes for different viewports:
+
+```jsx
+<Image
+  src="/images/hero/hero-bg.jpg"
+  alt="Kashmir Mountains"
+  fill
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  priority
+  className="object-cover"
+/>
+```
+
+4. **Lazy Loading**: Most images are lazy-loaded by default with the Next.js Image component. Use `priority` attribute only for above-the-fold images.
+
+5. **Image Compression Tools**:
+   - [TinyPNG](https://tinypng.com/) - For PNG and JPEG compression
+   - [Squoosh](https://squoosh.app/) - For advanced image compression
+   - [SVGOMG](https://jakearchibald.github.io/svgomg/) - For SVG optimization
+
+### Video Specifications
+
+#### Hero Background Video
+
+| Video | Dimensions | Format | File Size | Duration | Purpose |
+|-------|------------|--------|-----------|----------|----------|
+| hero-bg.mp4 | 1920×1080px | MP4 (H.264) | < 5MB | 10-15 sec | Desktop hero background |
+| hero-bg.webm | 1920×1080px | WebM (VP9) | < 3MB | 10-15 sec | Desktop hero background (alternative format) |
+| hero-mobile.mp4 | 768×1024px | MP4 (H.264) | < 3MB | 10-15 sec | Mobile hero background |
+
+### Video Optimization Guidelines
+
+1. **Video Compression**:
+   - Use H.264 codec for MP4 files
+   - Use VP9 codec for WebM files
+   - Target bitrate: 1500-2500 kbps for 1080p
+   - Audio: AAC, 128 kbps, stereo (or remove audio for background videos)
+
+2. **Video Implementation**:
+
+```jsx
+const VideoBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute w-full h-full object-cover"
+      >
+        <source src="/videos/hero-bg.webm" type="video/webm" />
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        {/* Fallback image if video doesn't load */}
+        <Image
+          src="/images/hero/hero-bg.jpg"
+          alt="Kashmir Mountains"
+          fill
+          className="object-cover"
+          priority
+        />
+      </video>
+      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+    </div>
+  );
+};
+```
+
+3. **Video Compression Tools**:
+   - [HandBrake](https://handbrake.fr/) - Free and open-source video transcoder
+   - [FFmpeg](https://ffmpeg.org/) - Command-line tool for video processing
+   - [Shotcut](https://www.shotcut.org/) - Free, open-source video editor
+
+4. **Performance Considerations**:
+   - Always include a poster image
+   - Use `preload="none"` for non-critical videos
+   - Consider not loading videos on mobile devices or slow connections
+   - Keep videos short and loop them instead of using long videos
+   - Implement lazy loading for videos below the fold
+
+### Responsive Image Implementation
+
+#### For Hero Section
+
+```jsx
+const Hero = () => {
+  return (
+    <section className="relative h-screen">
+      {/* Desktop Image */}
+      <div className="hidden md:block relative w-full h-full">
+        <Image
+          src="/images/hero/hero-bg.jpg"
+          alt="Kashmir Mountains"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      {/* Mobile Image */}
+      <div className="block md:hidden relative w-full h-full">
+        <Image
+          src="/images/hero/hero-mobile.jpg"
+          alt="Kashmir Mountains"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      {/* Content overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="text-center text-white px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Discover Kashmir</h1>
+          <p className="text-xl mb-8">Experience the paradise on earth</p>
+          <button className="btn-primary">Explore Packages</button>
+        </div>
+      </div>
+    </section>
+  );
+};
+```
+
+### Image Placeholder Strategy
+
+Use blur placeholders for a better user experience while images load:
+
+```jsx
+import Image from 'next/image';
+
+<Image
+  src="/images/packages/package1.jpg"
+  alt="Kashmir Package"
+  width={600}
+  height={400}
+  placeholder="blur"
+  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAn/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AL+AD//Z"
+  className="rounded-lg"
+/>
+```
+
+### Common Issues and Solutions
+
+1. **Images Not Loading**:
+   - Check file paths are correct
+   - Verify image exists in the public directory
+   - Ensure proper dimensions are specified
+
+2. **Slow Image Loading**:
+   - Compress images further
+   - Use WebP format
+   - Implement proper lazy loading
+   - Consider using a CDN
+
+3. **Videos Not Playing**:
+   - Ensure video formats are supported by the browser
+   - Check autoPlay, muted, and playsInline attributes
+   - Verify file paths
+   - Provide fallback image
+
+4. **Mobile Performance Issues**:
+   - Use smaller images for mobile devices
+   - Consider not loading videos on mobile
+   - Implement responsive image loading
+
+### Best Practices Summary
+
+1. **Always optimize images** before adding them to the project
+2. **Use appropriate dimensions** for each context
+3. **Implement responsive images** with different sizes for different viewports
+4. **Use Next.js Image component** for automatic optimization
+5. **Provide WebP alternatives** when possible
+6. **Keep videos short and optimized** for web delivery
+7. **Include fallbacks** for videos and modern image formats
+8. **Use SVGs for icons** and simple graphics
+9. **Implement blur placeholders** for better loading experience
+10. **Consider accessibility** by providing proper alt text for all images
 
 ### Hero Section Alignment Fix
 
