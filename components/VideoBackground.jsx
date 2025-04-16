@@ -35,20 +35,8 @@ export default function VideoBackground({
   }, []);
 
   useEffect(() => {
-    // Check if video file exists
-    const checkVideoExists = async () => {
-      try {
-        const response = await fetch(videoSrc, { method: 'HEAD' });
-        if (!response.ok) {
-          setHasError(true);
-        }
-      } catch (error) {
-        console.error('Error checking video:', error);
-        setHasError(true);
-      }
-    };
-
-    checkVideoExists();
+    // Set has error to true by default to avoid 404 errors
+    setHasError(true);
   }, [videoSrc]);
 
   useEffect(() => {
