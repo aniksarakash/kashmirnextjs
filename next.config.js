@@ -9,6 +9,7 @@ const nextConfig = {
   output: 'export',
   assetPrefix: '/kashmirnextjs/',
   basePath: '/kashmirnextjs',
+  trailingSlash: true,
   // Optimize SVG usage
   webpack(config) {
     // Configure SVGR
@@ -16,6 +17,10 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
+
+    // Fix webpack chunk loading
+    config.output.publicPath = '/kashmirnextjs/_next/';
+
     return config;
   },
 }
