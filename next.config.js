@@ -7,8 +7,8 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
   },
   output: 'export',
-  assetPrefix: '/kashmirnextjs/',
-  basePath: '/kashmirnextjs',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/kashmirnextjs' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/kashmirnextjs' : '',
   trailingSlash: true,
   // Optimize SVG usage
   webpack(config) {
@@ -17,11 +17,6 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-
-    // Fix webpack chunk loading
-    if (process.env.NODE_ENV === 'production') {
-      config.output.publicPath = '/kashmirnextjs/_next/';
-    }
 
     return config;
   },
