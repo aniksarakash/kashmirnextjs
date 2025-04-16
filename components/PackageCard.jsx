@@ -40,7 +40,7 @@ export default function PackageCard({
         )}
 
         {isPopular && !isTrending && (
-          <div className="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+          <div className="absolute top-4 left-4 bg-[#00A3C4] text-white text-xs font-bold px-3 py-1 rounded-full">
             Popular
           </div>
         )}

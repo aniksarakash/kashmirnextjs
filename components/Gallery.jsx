@@ -91,28 +91,28 @@ export default function Gallery() {
   return (
     <section className="py-16 bg-white" id="gallery" ref={ref}>
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="section-title">Explore Kashmir</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-4"></div>
-          <p className="section-subtitle">
+          <h2 className="section-title text-gray-900 bg-white/80 backdrop-blur-sm inline-block px-6 py-2 rounded-lg shadow-sm">Explore Kashmir</h2>
+          <div className="w-20 h-1 bg-[#00A3C4] mx-auto mb-4 mt-2"></div>
+          <p className="section-subtitle bg-white/70 backdrop-blur-sm inline-block px-4 py-2 rounded-lg">
             Discover the breathtaking beauty of Kashmir through our gallery of stunning locations.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
           {galleryImages.map((image) => (
-            <motion.div 
-              key={image.id} 
+            <motion.div
+              key={image.id}
               className="relative overflow-hidden rounded-lg shadow-md cursor-pointer group"
               variants={itemVariants}
               onClick={() => openLightbox(image)}
@@ -139,11 +139,11 @@ export default function Gallery() {
 
       {/* Lightbox */}
       {selectedImage && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={closeLightbox}
         >
-          <button 
+          <button
             className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors duration-300"
             onClick={closeLightbox}
           >
@@ -151,7 +151,7 @@ export default function Gallery() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          
+
           <div className="max-w-4xl max-h-[80vh] relative" onClick={(e) => e.stopPropagation()}>
             <div className="relative w-full h-full">
               <Image

@@ -2,6 +2,23 @@
 
 All notable changes to the Kashmir Landing Page project will be documented in this file.
 
+## [1.3.0] - 2023-08-15
+
+### Fixed
+- UI/UX issues with text on colored backgrounds:
+  - Fixed blue background on FAQ questions
+  - Improved readability of section titles and subtitles
+  - Added semi-transparent backgrounds with backdrop blur for better text visibility
+  - Standardized color usage across components
+
+### Added
+- New FAQNew component with improved styling and accessibility
+- Enhanced styling for text elements to work well on any background
+- Updated README with information about the UI/UX improvements
+
+### Contributors
+- Anik Sarker Akash - Fixed UI/UX issues and created new FAQ component
+
 ## [1.2.0] - 2023-07-20
 
 ### Added

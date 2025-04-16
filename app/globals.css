@@ -41,6 +41,17 @@ body {
   @apply text-3xl md:text-4xl font-bold font-montserrat mb-4;
 }
 
+/* Mobile responsiveness fixes */
+@media (max-width: 768px) {
+  #hero {
+    padding-top: 60px;
+  }
+
+  .mobile-hero-padding {
+    padding-top: 80px !important;
+  }
+}
+
 .section-subtitle {
   @apply text-lg max-w-3xl mx-auto;
 }
@@ -119,6 +130,40 @@ body {
 
 .faq-item {
   @apply border-b border-gray-700 py-4;
+}
+
+.faq-question {
+  @apply bg-white text-gray-900 border-none shadow-none !important;
+}
+
+/* Override any blue backgrounds */
+.section-subtitle,
+#faq p,
+#faq div p,
+#faq * {
+  background-color: transparent !important;
+}
+
+/* Force white background on specific elements */
+#faq .bg-white,
+#faq button,
+#faq .rounded-lg,
+#faq .shadow-md {
+  background-color: white !important;
+}
+
+/* Add specific styling for the FAQ subtitle */
+#faq .section-subtitle {
+  @apply bg-white/70 backdrop-blur-sm inline-block px-4 py-2 rounded-lg;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Target the specific blue background element */
+#faq p,
+#faq .section-subtitle,
+#faq [class*="bg-"] {
+  background-color: transparent !important;
+  color: #333 !important;
 }
 
 .whatsapp-button {

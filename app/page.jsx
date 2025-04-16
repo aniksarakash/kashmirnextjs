@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
 import Gallery from '../components/Gallery';
 import Testimonials from '../components/Testimonials';
-import FAQ from '../components/FAQ';
+import FAQNew from '../components/FAQNew';
 import ImageCarousel from '../components/ImageCarousel';
 
 export default function Home() {
@@ -95,7 +95,7 @@ export default function Home() {
       <Testimonials />
 
       {/* FAQ Section */}
-      <FAQ />
+      <FAQNew />
 
       {/* Contact Section */}
       <section className="py-16 bg-gray-800" id="contact">

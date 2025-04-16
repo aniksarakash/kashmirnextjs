@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-export default function FAQ() {
+export default function FAQNew() {
   const [activeIndex, setActiveIndex] = useState(null);
   const { ref, inView } = useInView({
     threshold: 0.1,
@@ -72,10 +72,12 @@ export default function FAQ() {
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="section-title text-gray-900 bg-white/80 backdrop-blur-sm inline-block px-6 py-2 rounded-lg shadow-sm">Frequently Asked Questions</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-montserrat mb-4 bg-white/80 backdrop-blur-sm inline-block px-6 py-2 rounded-lg shadow-sm text-gray-900">
+            Frequently Asked Questions
+          </h2>
           <div className="w-20 h-1 bg-[#00A3C4] mx-auto mb-4 mt-2"></div>
-          <div className="bg-transparent" style={{ backgroundColor: 'transparent !important' }}>
-            <p className="section-subtitle bg-white/70 backdrop-blur-sm inline-block px-4 py-2 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.7) !important', color: '#333 !important' }}>
+          <div style={{ backgroundColor: 'transparent' }}>
+            <p className="text-lg max-w-3xl mx-auto bg-white/70 backdrop-blur-sm inline-block px-4 py-2 rounded-lg text-gray-900">
               Find answers to common questions about our Kashmir tour packages.
             </p>
           </div>
@@ -95,8 +97,9 @@ export default function FAQ() {
                 variants={itemVariants}
               >
                 <button
-                  className="flex justify-between items-center w-full p-5 text-left bg-white/90 backdrop-blur-sm text-gray-900 border-none rounded-lg transition-colors duration-300 hover:bg-white/95"
+                  className="flex justify-between items-center w-full p-5 text-left bg-white text-gray-900 border-none rounded-lg transition-colors duration-300 hover:bg-gray-50"
                   onClick={() => toggleAccordion(index)}
+                  style={{ backgroundColor: 'white' }}
                 >
                   <h3 className="text-lg font-bold">{faq.question}</h3>
                   <svg
@@ -121,7 +124,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="p-5 pt-0 border-t">
+                      <div className="p-5 pt-0 border-t bg-white">
                         <p className="text-gray-600">{faq.answer}</p>
                       </div>
                     </motion.div>

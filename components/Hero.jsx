@@ -22,7 +22,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center justify-center text-center overflow-hidden text-white" id="hero">
+    <section className="relative h-screen min-h-[600px] flex items-center justify-center text-center overflow-hidden text-white mobile-hero-padding" id="hero">
       <VideoBackground
         videoSrc="/videos/hero/kashmir-landscape.mp4"
         posterSrc="/images/hero/hero-bg.jpg"
@@ -34,13 +34,13 @@ export default function Hero() {
           transition={{ delay: 0.8, duration: 0.5 }}
         >
           <div className="flex flex-col items-center">
-            <span className="font-heading text-[1.8rem] text-primary font-bold">3000+</span>
+            <span className="font-heading text-[1.8rem] text-[#00A3C4] font-bold">3000+</span>
             <span className="text-[0.9rem] text-gray-800 font-medium">Happy Travelers</span>
           </div>
         </motion.div>
 
         <div className="container mx-auto px-4">
-          <div className="relative z-10 max-w-[800px] mx-auto">
+          <div className="relative z-10 max-w-[800px] mx-auto mt-[80px] md:mt-0">
             <motion.h1
               className="mb-4 text-shadow text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider"
               initial={{ opacity: 0, x: -50 }}
