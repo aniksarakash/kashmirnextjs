@@ -19,7 +19,9 @@ const nextConfig = {
     });
 
     // Fix webpack chunk loading
-    config.output.publicPath = '/kashmirnextjs/_next/';
+    if (process.env.NODE_ENV === 'production') {
+      config.output.publicPath = '/kashmirnextjs/_next/';
+    }
 
     return config;
   },

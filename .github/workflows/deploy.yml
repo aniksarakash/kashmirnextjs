@@ -23,11 +23,18 @@ jobs:
           node-version: "18"
           cache: 'npm'
 
+      - name: Configure Git
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
       - name: Install dependencies
         run: npm ci
 
       - name: Build with Next.js
         run: npm run build
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
