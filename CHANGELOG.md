@@ -2,7 +2,7 @@
 
 All notable changes to the Kashmir Landing Page project will be documented in this file.
 
-## [1.3.0] - 2023-08-15
+## [1.3.0] - 2025-04-17
 
 ### Fixed
 - UI/UX issues with text on colored backgrounds:
@@ -19,7 +19,7 @@ All notable changes to the Kashmir Landing Page project will be documented in th
 ### Contributors
 - Anik Sarker Akash - Fixed UI/UX issues and created new FAQ component
 
-## [1.2.0] - 2023-07-20
+## [1.2.0] - 2025-03-20
 
 ### Added
 - Comprehensive assets guide (ASSETS.md) with:
@@ -33,7 +33,7 @@ All notable changes to the Kashmir Landing Page project will be documented in th
 ### Contributors
 - Anik Sarker Akash - Created assets guide and updated components
 
-## [1.1.0] - 2023-07-15
+## [1.1.0] - 2025-03-15
 
 ### Fixed
 - Hero section alignment issues:
@@ -49,7 +49,7 @@ All notable changes to the Kashmir Landing Page project will be documented in th
 ### Contributors
 - Anik Sarker Akash - Fixed hero section alignment issues
 
-## [1.0.0] - 2023-06-30
+## [1.0.0] - 2025-02-28
 
 ### Added
 - Initial release of the Kashmir Landing Page

@@ -1,5 +1,16 @@
 'use client';
 
+/**
+ * Gallery Component
+ *
+ * Displays a responsive image gallery with lightbox functionality.
+ * Updated with improved styling for better readability on any background.
+ *
+ * @author Anik Sarker Akash
+ * @version 1.1.0
+ * @since April 17, 2025
+ */
+
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';

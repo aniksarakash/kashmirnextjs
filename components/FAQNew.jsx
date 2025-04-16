@@ -1,5 +1,17 @@
 'use client';
 
+/**
+ * FAQNew Component
+ *
+ * An improved FAQ component with better styling and accessibility.
+ * Features semi-transparent backgrounds with backdrop blur for better readability
+ * on any background.
+ *
+ * @author Anik Sarker Akash
+ * @version 1.0.0
+ * @since April 17, 2025
+ */
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

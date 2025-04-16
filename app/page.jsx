@@ -1,5 +1,16 @@
 'use client';
 
+/**
+ * Main Page Component
+ *
+ * The main landing page for the Kashmir travel website.
+ * Updated to use the new FAQNew component for better styling and accessibility.
+ *
+ * @author Anik Sarker Akash
+ * @version 1.3.0
+ * @since April 17, 2025
+ */
+
 import Image from 'next/image';
 import Header from '../components/Header';
 import Hero from '../components/Hero';

@@ -121,7 +121,7 @@ Most content can be updated directly in the `app/page.jsx` file.
 
 ## Recent Updates
 
-### UI/UX Improvements (August 2023)
+### UI/UX Improvements (April 2025)
 
 1. Fixed styling issues with text elements on colored backgrounds
 2. Improved readability by adding semi-transparent backgrounds with backdrop blur
@@ -129,7 +129,7 @@ Most content can be updated directly in the `app/page.jsx` file.
 4. Enhanced section titles and subtitles to work well on any background
 5. Standardized color usage across the site for better consistency
 
-### GitHub Pages Deployment Fixes (July 2023)
+### GitHub Pages Deployment Fixes (March 2025)
 
 Several fixes have been implemented to ensure proper deployment on GitHub Pages:
 
@@ -425,8 +425,8 @@ These changes ensure consistent alignment across different screen sizes and brow
 
 ## Developer Notes
 
-- **Anik Sarker Akash** - Fixed UI/UX issues with text on colored backgrounds (August 2023)
-- **Anik Sarker Akash** - Implemented GitHub Pages deployment fixes and optimizations (July 2023)
+- **Anik Sarker Akash** - Fixed UI/UX issues with text on colored backgrounds (April 2025)
+- **Anik Sarker Akash** - Implemented GitHub Pages deployment fixes and optimizations (March 2025)
 - **Anik Sarker Akash** - Fixed hero section alignment issues and improved responsive behavior
 - **Anik Sarker Akash** - Created comprehensive assets guide for image and video placement
 

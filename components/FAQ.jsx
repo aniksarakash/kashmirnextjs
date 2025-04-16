@@ -1,5 +1,16 @@
 'use client';
 
+/**
+ * FAQ Component
+ *
+ * Original FAQ component with styling fixes to address UI/UX issues.
+ * Note: This component has been replaced by FAQNew.jsx for better styling and accessibility.
+ *
+ * @author Anik Sarker Akash
+ * @version 1.0.0
+ * @since April 17, 2025
+ */
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';

@@ -1,3 +1,14 @@
+/**
+ * Global CSS Styles
+ *
+ * Main stylesheet for the Kashmir travel website.
+ * Updated with improved styling for better readability on any background.
+ *
+ * @author Anik Sarker Akash
+ * @version 1.3.0
+ * @since April 17, 2025
+ */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
